@@ -26,7 +26,10 @@ namespace TddMeetup
         [InlineData("II", 2)]
         [InlineData("VI", 6)]
         [InlineData("XI", 11)]
-        public void Deve_Entender_Se_Um_Numero_Tem_Dois_Algarismos(string romano, int esperado)
+        [InlineData("XII", 12)]
+        [InlineData("VIII", 8)]
+        [InlineData("XVI", 16)]
+        public void Deve_Entender_Um_Numero_De_Dois_Ou_Mais_Algarismos(string romano, int esperado)
         {
             var conversorRomano = new ConversorRomano();
 
@@ -38,7 +41,8 @@ namespace TddMeetup
         [Theory]
         [InlineData("IV", 4)]
         [InlineData("IX", 9)]
-        public void Deve_Entender_Quando_O_Algarismo_Da_Esquerda_For_Menor_Que_O_Da_Direita(string romano, int esperado)
+        [InlineData("XIV", 14)]
+        public void Deve_Subtrair_Algarismos_Menores_A_Direita(string romano, int esperado)
         {
             var conversorRomano = new ConversorRomano();
 

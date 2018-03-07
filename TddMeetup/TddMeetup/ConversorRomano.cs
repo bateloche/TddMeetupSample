@@ -18,19 +18,18 @@ namespace TddMeetup
 
         public int Converte(string romano)
         {
-            var valor = 0;
+            var tamanho = romano.Length;
 
-            var anterior = romano[0];
+            var anterior = _algarismos[romano.Last()];
+            var valor = anterior;
 
-            for (var i = 1; i < romano.Length; i++)
+            for (var i = tamanho - 2; i >= 0; i--)
             {
-                var atual = romano[i];
-
-            }
-
-            foreach (var algarismo in romano)
-            {
-                valor += _algarismos[algarismo];
+                var caractereAtual = romano[i];
+                var valorAtual = _algarismos[caractereAtual];
+                var multiplicador = valorAtual >= anterior ? 1 : -1;
+                valor += valorAtual * multiplicador;
+                anterior = valorAtual;
             }
 
             return valor;
